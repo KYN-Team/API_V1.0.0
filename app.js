@@ -2,6 +2,7 @@ let createError = require('http-errors'),
     express = require('express'),
     path = require('path'),
     cookieParser = require('cookie-parser'),
+    env = require('dotenv').load(),
     logger = require('morgan');
 
 let app = express();
