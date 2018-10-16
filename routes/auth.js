@@ -10,6 +10,6 @@ let authController = require('../controllers/authController.js');
 router.post('/signup', authController.signup);
 
 //SignIn
-//router.post('/signin', authenticationController.signin);
+router.post('/signin', authController.signin);
 
 module.exports = router;
