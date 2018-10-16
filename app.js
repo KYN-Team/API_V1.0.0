@@ -12,7 +12,7 @@ let models = require("./models");
 models.sequelize.authenticate().then(() => {
 
     //Create Database Models
-    models.sequelize.sync({force: true}).then(function() {
+    models.sequelize.sync(/*{force: true}*/).then(function() {
         //require('./config/initial_data')(models);
     }).catch(function(err) {
         throw new Error(err);
@@ -41,6 +41,19 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', function(req, res) {
     res.send('Page under construction.');
 });
+
+/**
+ * Server Routes
+ */
+
+// Calling routes
+let auth = require('./routes/auth');
+
+// Using routes
+app.use('/api_v1', auth);
+/**
+ * End Server Routes
+ */
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
