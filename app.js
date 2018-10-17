@@ -12,7 +12,7 @@ let models = require("./models");
 models.sequelize.authenticate().then(() => {
 
     //Create Database Models
-    models.sequelize.sync(/*{force: true}*/).then(function() {
+    models.sequelize.sync({force: true}).then(function() {
         //require('./config/initial_data')(models);
     }).catch(function(err) {
         throw new Error(err);
